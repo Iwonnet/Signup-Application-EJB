@@ -1,0 +1,9 @@
+
+
+.idea
+*.jar
+*.war
+*.ear
+README.md
+template.xhtml
+template_nomenu.xhtml

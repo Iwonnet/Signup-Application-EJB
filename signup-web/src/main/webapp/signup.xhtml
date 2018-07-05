@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head><title>Rejestracja na studia</title>
+</h:head>
+<h:body>
+	<div align="center">
+		<h1>Rejestracja</h1>
+		<fieldset>
+			<legend>Formularz rejestracyjny na studia</legend>
+			<h:form>
+
+				Imię:       <h:inputText required="true" requiredMessage="Musisz podać imię"
+										 validatorMessage="Imię musi mieć od 3 do 20 znaków i składać się z liter"
+										 value="#{signupBean.firstName}">
+				<f:validateLength minimum="3" maximum="20" />
+				<f:validateRegex pattern="^[A-Z\\Ż]{1}[a-z\\ż\\ą\\ę\\ś\\ć\\ż\\ź\\ń]{2,19}$" />
+			</h:inputText>
+
+				<br/>
+
+				Nazwisko:   <h:inputText required="true" requiredMessage="Musisz podać nazwisko"
+										 value="#{signupBean.lastName}"/>
+
+				<br/>
+
+				email:       <h:inputText required="true" requiredMessage="Musisz podać email"
+										  validatorMessage="Nieporawny format email"
+										  value="#{signupBean.email}">
+				<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+			</h:inputText>
+
+				<br/>
+
+				<h:commandButton value="Zarejestruj"  action="#{signupBean.signup}"/>
+
+			</h:form>
+		</fieldset>
+	</div>
+</h:body>
+</html>
